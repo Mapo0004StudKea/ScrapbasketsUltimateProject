@@ -1,7 +1,6 @@
 package stud.kea.dk.scrapbasketsultimateproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.web.bind.annotation.RequestParam;
 import stud.kea.dk.scrapbasketsultimateproject.model.AnimeMusicData;
 import stud.kea.dk.scrapbasketsultimateproject.repository.AnimeMusicRepository;
