@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anime Music List</title>
+    <link rel="stylesheet" type="text/css" href="/css/animeMusic.css">
+</head>
+<body>
+<div class="container">
+    <h1>Anime Songs I like before 2024</h1>
+    <h2>Past songs in no particular order</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Anime Name</th>
+            <th>Anime Song</th>
+            <th>Artist</th>
+            <th>OP/ED/IN</th>
+            <th>Anime Link</th>
+            <th>Official Link</th>
+            <th>Alternative Link</th>
+            <th>Anime Song Lyrics</th>
+            <th>Last Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="music : ${animemusiclist}">
+            <td th:text="${music.id}">1</td>
+            <td th:text="${music.animeName}">Anime Name</td>
+            <td th:text="${music.animeSong}">Something</td>
+            <td th:text="${music.artist}">Flamingo Boy</td>
+            <td th:text="${music.opedin}">opening</td>
+            <td>
+                <a th:href="${music.animeLink}" target="_blank">Anime Link</a>
+            </td>
+            <td>
+                <a th:href="${music.officialLink}" target="_blank">Offical Link</a>
+            </td>
+            <td>
+                <a th:href="${music.alternativeLink}" target="_blank">Alternative Link</a>
+            </td>
+            <td>
+                <a th:href="${music.animeSongLyrics}" target="_blank">Anime Lyrics</a>
+            </td>
+            <td th:text="${music.lastUpdate}">link here</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
