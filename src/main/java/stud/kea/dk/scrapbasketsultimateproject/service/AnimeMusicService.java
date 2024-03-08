@@ -21,4 +21,11 @@ public class AnimeMusicService {
                 .collect(Collectors.toList());
         return sortedListBySong;
     }
+
+    public List<AnimeMusicData> sortByAnimeName(List<AnimeMusicData> musicDataList) {
+        List<AnimeMusicData> sortedListByName = musicDataList.stream()
+                .sorted(Comparator.comparing(AnimeMusicData::getAnimeName))
+                .collect(Collectors.toList());
+        return sortedListByName;
+    }
 }

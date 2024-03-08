@@ -2,6 +2,7 @@ package stud.kea.dk.scrapbasketsultimateproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
+import org.springframework.web.bind.annotation.RequestParam;
 import stud.kea.dk.scrapbasketsultimateproject.model.AnimeMusicData;
 import stud.kea.dk.scrapbasketsultimateproject.repository.AnimeMusicRepository;
 import stud.kea.dk.scrapbasketsultimateproject.service.AnimeMusicService;
@@ -22,9 +23,26 @@ public class AnimeMusicController {
 
     // http://localhost:8080/AnimeMusticList
     @GetMapping("/AnimeMusticList")
-    public String showAnimeMusicList(Model model) {
+    public String showAnimeMusicList(@RequestParam(defaultValue = "default") String sortOption, Model model) {
         List<AnimeMusicData> animeMusicDataList = animeMusicRepository.getAllMusicData();
-        model.addAttribute("animemusiclist", animeMusicDataList);
+        // Sort the list based on the selected option
+        List<AnimeMusicData> sortedList;
+        switch (sortOption) {
+            case "anime name":
+                sortedList = animeMusicService.sortByAnimeName(animeMusicDataList);
+                break;
+            case "artist":
+                sortedList = animeMusicService.sortByArtist(animeMusicDataList);
+                break;
+            case "song":
+                sortedList = animeMusicService.sortByAnimeSong(animeMusicDataList);
+                break;
+            default:
+                // Use the default order
+                sortedList = animeMusicDataList;
+                break;
+        }
+        model.addAttribute("animemusiclist", sortedList);
         return "animeMusic";
     }
     // http://localhost:8080/AnimeSortedMusicList

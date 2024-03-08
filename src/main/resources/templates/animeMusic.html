@@ -7,8 +7,37 @@
 </head>
 <body>
 <div class="container">
+    <div class="navbar">
+        <a href="/">
+            <img src="/image/Scrapbasket.png" alt="Your Logo">
+        </a>
+        <div class="nav-links">
+            <!--
+            <a href="/deck-builder">Deck Builder</a>
+            <a href="/mtg-cards">MTG Cards</a>
+            <a href="/events">Events</a>
+            <a href="/draft-sim">Draft Sim</a>
+            <a href="/cubes">Cubes</a>
+            <a href="/forums">Forums</a>
+            <a href="/rules-q-a">Rules Q&A</a>
+            <a href="/community">Community</a>
+            -->
+        </div>
+    </div>
     <h1>Anime Songs I like before 2024</h1>
     <h2>Past songs in no particular order</h2>
+    <!-- Dropdown menu to select sorting option -->
+    <form th:action="@{/AnimeMusticList}" method="get" style="display: inline-block; margin-right: 20px;">
+        <label for="sortOption">Sort by:</label>
+        <select id="sortOption" name="sortOption">
+            <option value="default">Default</option>
+            <option value="anime name">anime name</option>
+            <option value="song">Song</option>
+            <option value="artist">Artist</option>
+            <!-- Add more options for different sorting criteria if needed -->
+        </select>
+        <button type="submit">Sort</button>
+    </form>
     <table>
         <thead>
         <tr>
