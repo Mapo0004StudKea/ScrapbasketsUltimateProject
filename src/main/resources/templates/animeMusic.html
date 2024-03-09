@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <title>Anime Music List</title>
     <link rel="stylesheet" type="text/css" href="/css/animeMusic.css">
+    <script>
+        function searchList() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchBar");
+            filter = input.value.toUpperCase();
+            table = document.querySelector(".container table");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                var animeName = tr[i].getElementsByTagName("td")[1];
+                var animeSong = tr[i].getElementsByTagName("td")[2];
+                var artist = tr[i].getElementsByTagName("td")[3];
+
+                // Concatenate text content for Anime Name, Anime Song, and Artist
+                txtValue = (animeName ? animeName.textContent || animeName.innerText : "")
+                    + (animeSong ? animeSong.textContent || animeSong.innerText : "")
+                    + (artist ? artist.textContent || artist.innerText : "");
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
 </head>
 <body>
     <div class="navbar">
         <a href="/">
             <img src="/images/Logo/ScrapBox.PNG" alt="Your Logo">
         </a>
-        <div class="nav-links">
-            <!--
+        <nav class="nav-links">
+
             <a href="/deck-builder">Deck Builder</a>
             <a href="/mtg-cards">MTG Cards</a>
             <a href="/events">Events</a>
@@ -20,26 +47,32 @@
             <a href="/forums">Forums</a>
             <a href="/rules-q-a">Rules Q&A</a>
             <a href="/community">Community</a>
-            -->
+            <a>            <label for="searchBar">Search:</label>
+                <input type="text" id="searchBar" oninput="searchList()" placeholder="Type to search"></a>
+        </nav>
+    </div>
+
+    <div class="container" style="display: flex; justify-content: space-between;">
+        <div>
+            <h1>Anime Songs I like before 2024</h1>
+            <h2>Past songs in no particular order</h2>
+        </div>
+        <div>
+            <!-- Dropdown menu to select sorting option -->
+            <form th:action="@{/AnimeMusticList}" method="get">
+                <label for="sortOption">Sort by:</label>
+                <select id="sortOption" name="sortOption">
+                    <option value="default">Default</option>
+                    <option value="anime name">anime name</option>
+                    <option value="song">Song</option>
+                    <option value="artist">Artist</option>
+                    <!-- Add more options for different sorting criteria if needed -->
+                </select>
+                <button type="submit">Sort</button>
+            </form>
         </div>
     </div>
     <div class="container">
-        <!-- Dropdown menu to select sorting option -->
-        <form th:action="@{/AnimeMusticList}" method="get">
-            <label for="sortOption">Sort by:</label>
-            <select id="sortOption" name="sortOption">
-                <option value="default">Default</option>
-                <option value="anime name">anime name</option>
-                <option value="song">Song</option>
-                <option value="artist">Artist</option>
-                <!-- Add more options for different sorting criteria if needed -->
-            </select>
-            <button type="submit">Sort</button>
-        </form>
-    </div>
-    <div class="container">
-    <h1>Anime Songs I like before 2024</h1>
-    <h2>Past songs in no particular order</h2>
     <table>
         <thead>
         <tr>
