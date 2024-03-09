@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/animeMusic.css">
+</head>
+<body>
+<div class="navbar">
+    <a href="/">
+        <img src="/images/Logo/ScrapBox.PNG" alt="Your Logo">
+    </a>
+    <nav class="nav-links">
+        <!--
+        <a href="/deck-builder">Deck Builder</a>
+        <a href="/mtg-cards">MTG Cards</a>
+        <a href="/events">Events</a>
+        <a href="/draft-sim">Draft Sim</a>
+        <a href="/cubes">Cubes</a>
+        <a href="/forums">Forums</a>
+        <a href="/rules-q-a">Rules Q&A</a>
+        <a href="/community">Community</a>
+        -->
+    </nav>
+</div>
+<div class="container" style="display: flex; justify-content: space-between;">
+    <div>
+        <h1>Anime List</h1>
+    </div>
+</div>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Anime Name</th>
+            <th>Link</th>
+            <!--
+            <th>Genre</th>
+            <th>Very Bad</th>
+            <th>Bad</th>
+            <th>Okay</th>
+            <th>Good</th>
+            <th>very Good</th>
+            -->
+            <th>Watch again?</th>
+            <th>Date Started</th>
+            <th>Last Time Watched</th>
+            <th>Dub/Sub</th>
+            <th>Manga Read?</th>
+            <th>Manga Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="anime : ${animelist}">
+            <td th:text="${anime.id}">1</td>
+            <td th:text="${anime.animeNames}">Anime Name</td>
+            <td>
+                <a th:href="${anime.link}" target="_blank">Link</a>
+            </td>
+            <!--
+            <td th:text="${anime.genre}">genre</td>
+            <td th:text="${anime.veryBad}">Flamingo Boy</td>
+            <td th:text="${anime.bad}">bad</td>
+            <td th:text="${anime.okay}">bad</td>
+            <td th:text="${anime.good}">bad</td>
+            <td th:text="${anime.veryGood}">bad</td>
+            -->
+            <td th:text="${anime.watchAgain}">bad</td>
+            <td th:text="${anime.dateStarted}">bad</td>
+            <td th:text="${anime.lastTimeWatched}">bad</td>
+            <td th:text="${anime.dubSub}">bad</td>
+            <td th:text="${anime.mangaRead}">bad</td>
+            <td>
+                <a th:href="${anime.mangaLink}" target="_blank">Link</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
