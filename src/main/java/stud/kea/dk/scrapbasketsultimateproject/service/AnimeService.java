@@ -35,5 +35,11 @@ public class AnimeService {
                 .collect(Collectors.toList());
         return sortedList;
     }
+    public List<AnimeData> sortByAnimeDubSub(List<AnimeData> animeDataList) {
+        List<AnimeData> sortedList = animeDataList.stream()
+                .sorted(Comparator.comparing(AnimeData::getDubSub))
+                .collect(Collectors.toList());
+        return sortedList;
+    }
 
 }

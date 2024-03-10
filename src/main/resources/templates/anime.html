@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="/css/animeMusic.css">
+
+    <script>
+        function searchList() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchBar");
+            filter = input.value.toUpperCase();
+            table = document.querySelector(".container table");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                var animeNames = tr[i].getElementsByTagName("td")[1];
+                var genre = tr[i].getElementsByTagName("td")[3];
+                var watchAgain = tr[i].getElementsByTagName("td")[4];
+                var dubSub = tr[i].getElementsByTagName("td")[7];
+
+                // Concatenate text content for Anime Name, genre, watch again, dub or sub
+                txtValue = (animeNames ? animeNames.textContent || animeNames.innerText : "")
+                    + (genre ? genre.textContent || genre.innerText : "")
+                    + (watchAgain ? watchAgain.textContent || watchAgain.innerText : "");
+                    + (dubSub ? dubSub.textContent || dubSub.innerText : "");
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="navbar">
@@ -11,8 +40,10 @@
         <img src="/images/Logo/ScrapBox.PNG" alt="Your Logo">
     </a>
     <nav class="nav-links">
+        <a href="/AnimeSortedMusicList">Anime Music List</a>
+        <a href="/ranking">Anime Ranking</a>
         <!--
-        <a href="/deck-builder">Deck Builder</a>
+
         <a href="/mtg-cards">MTG Cards</a>
         <a href="/events">Events</a>
         <a href="/draft-sim">Draft Sim</a>
@@ -21,11 +52,31 @@
         <a href="/rules-q-a">Rules Q&A</a>
         <a href="/community">Community</a>
         -->
+        <a>
+            <label for="searchBar">Search:</label>
+            <input type="text" id="searchBar" oninput="searchList()" placeholder="Type to search">
+        </a>
     </nav>
 </div>
 <div class="container" style="display: flex; justify-content: space-between;">
     <div>
-        <h1>Anime List</h1>
+        <h1>My Anime List</h1>
+    </div>
+    <div>
+        <!-- Dropdown menu to select sorting option -->
+        <form th:action="@{/animeList}" method="get">
+            <label for="sortOption">Sort by:</label>
+            <select id="sortOption" name="sortOption">
+                <option value="default">Default</option>
+                <option value="anime name">Anime Name</option>
+                <option value="genre">Genre</option>
+                <option value="date started">Date Started</option>
+                <option value="last time watched">Last Time Watched</option>
+                <option value="DubSub">Dub/Sub</option>
+                <!-- Add more options for different sorting criteria if needed -->
+            </select>
+            <button type="submit">Sort</button>
+        </form>
     </div>
 </div>
 <div class="container">
@@ -34,21 +85,22 @@
         <tr>
             <th>ID</th>
             <th>Anime Name</th>
-            <th>Link</th>
-            <!--
+            <th>Anime Link</th>
             <th>Genre</th>
+            <th>Watch again?</th>
+            <th>Date Started</th>
+            <th>Last Update</th>
+            <th>Dub/Sub</th>
+            <th>Manga Read?</th>
+            <th>Manga Link</th>
+            <!--
             <th>Very Bad</th>
             <th>Bad</th>
             <th>Okay</th>
             <th>Good</th>
             <th>very Good</th>
+            <th>Times Watched</th>
             -->
-            <th>Watch again?</th>
-            <th>Date Started</th>
-            <th>Last Time Watched</th>
-            <th>Dub/Sub</th>
-            <th>Manga Read?</th>
-            <th>Manga Link</th>
         </tr>
         </thead>
         <tbody>
@@ -58,13 +110,14 @@
             <td>
                 <a th:href="${anime.link}" target="_blank">Link</a>
             </td>
-            <!--
             <td th:text="${anime.genre}">genre</td>
+            <!--
             <td th:text="${anime.veryBad}">Flamingo Boy</td>
             <td th:text="${anime.bad}">bad</td>
             <td th:text="${anime.okay}">bad</td>
             <td th:text="${anime.good}">bad</td>
             <td th:text="${anime.veryGood}">bad</td>
+            <td th:text="${anime.timesWatched}"></td>
             -->
             <td th:text="${anime.watchAgain}">bad</td>
             <td th:text="${anime.dateStarted}">bad</td>

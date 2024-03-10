@@ -36,6 +36,10 @@ public class AnimeController {
                 break;
             case "last time watched":
                 sortedList = animeService.sortByAnimeLastWatched(animeDataList);
+                break;
+            case "DubSub":
+                sortedList = animeService.sortByAnimeDubSub(animeDataList);
+                break;
             default:
                 // Use the default order
                 sortedList = animeDataList;
@@ -43,5 +47,11 @@ public class AnimeController {
         }
         model.addAttribute("animelist", sortedList);
         return "anime";
+    }
+    @GetMapping("/ranking")
+    public String AnimeRanking(Model model) {
+        List<AnimeData> animeDataList = animeRepository.getAllAnimeData();
+        model.addAttribute("animelist", animeDataList);
+        return "animeRanking";
     }
 }
