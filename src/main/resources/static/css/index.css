@@ -99,7 +99,7 @@ a:hover {
 }
 
 .box1 {
-    background-image: url("/static/images/Angel_Beats.jpg");
+    background-image: url('/static/images/Angel_Beats.jpg');
 }
 
 .box2 {
@@ -123,4 +123,26 @@ a {
     text-decoration: none;
     display: block;
     margin-top: 10px;
+}
+
+.block-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+
+.block {
+    display: flex;
+    justify-content: right;
+    align-content: space-between;
+    <!--background: #007bff; -->
+    background-image: url('/static/images/nebula-galaxy-background-with-purple-blue-outer-space-cosmos-clouds-and-beautiful-universe-night-stars-ai-generative-free-photo.jpg');
+
+    p1 {
+        color: black;
+        font-size: 50px;
+        margin: 80px;
+    }
 }

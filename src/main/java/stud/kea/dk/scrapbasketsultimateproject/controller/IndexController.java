@@ -10,4 +10,11 @@ public class IndexController {
     public String showIndex() {
         return "index";
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
 }
+
+

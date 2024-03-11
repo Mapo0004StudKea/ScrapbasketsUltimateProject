@@ -18,7 +18,6 @@
             var genre = tr[i].getElementsByTagName("td")[2];
             var watchAgain = tr[i].getElementsByTagName("td")[9];
 
-            // Concatenate text content for Anime Name, Anime Song, and Artist
             txtValue = (animeNames ? animeNames.textContent || animeNames.innerText : "")
                 + (genre ? genre.textContent || genre.innerText : "")
                 + (watchAgain ? watchAgain.textContent || watchAgain.innerText : "");
@@ -39,16 +38,6 @@
     <nav class="nav-links">
         <a href="/AnimeSortedMusicList">Anime Music List</a>
         <a href="/animeList">Anime List</a>
-        <!--
-
-
-        <a href="/events">Events</a>
-        <a href="/draft-sim">Draft Sim</a>
-        <a href="/cubes">Cubes</a>
-        <a href="/forums">Forums</a>
-        <a href="/rules-q-a">Rules Q&A</a>
-        <a href="/community">Community</a>
-        -->
         <a>
         <label for="searchBar">Search:</label>
         <input type="text" id="searchBar" oninput="searchList()" placeholder="Type to search">
@@ -73,15 +62,6 @@
             <th>Good</th>
             <th>very Good</th>
             <th>Times Watched</th>
-            <!--
-            <th>Link to Anime</th>
-            <th>Date Started</th>
-            <th>Last Time Watched</th>
-            <th>Dub/Sub</th>
-            <th>Manga Read?</th>
-            <th>Manga Link</th>
-            -->
-
             <th>Watch again?</th>
         </tr>
         </thead>
@@ -97,21 +77,16 @@
             <td th:text="${anime.veryGood}">bad</td>
             <td th:text="${anime.timesWatched}"></td>
             <td th:text="${anime.watchAgain}">bad</td>
-            <!--
-            <td>
-                <a th:href="${anime.link}" target="_blank">Link</a>
-            </td>
-            <td th:text="${anime.dateStarted}">bad</td>
-            <td th:text="${anime.lastTimeWatched}">bad</td>
-            <td th:text="${anime.dubSub}">bad</td>
-            <td th:text="${anime.mangaRead}">bad</td>
-            <td>
-                <a th:href="${anime.mangaLink}" target="_blank">Link</a>
-            </td>
-            -->
         </tr>
         </tbody>
     </table>
 </div>
 </body>
+<footer>
+    <div class="navbar">
+        <a href="/">
+        </a>
+    </div>
+    </div>
+</footer>
 </html>
