@@ -2,8 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: black; /* Choose your background color */
+    padding: 5px;
+    background-color: black;
+    height: 75px;
 }
 
 .nav-links {
@@ -27,54 +28,22 @@ body {
     padding: 0;
 }
 
+.smallBox {
+    border: 1px solid #333;
+    color: white;
+    height: 20vh;
+    width: 10%;
+}
+
+.largerBox {
+    border: 1px solid #333;
+    color: white;
+    height: 20vh;
+    width: 90%;
+}
+
 .container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-h1 {
-    color: white;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-    white-space: nowrap;
-}
-
-th {
-    background-color: #4caf50; /* Green color */
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-button {
-    background-color: #007bff; /* Blue color */
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-a {
-    color: #007bff; /* Blue color */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+    display: flex;
 }
 
 .boxContainer {
@@ -84,30 +53,27 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
 }
+.boxContainer2 {
+    border: 1px solid #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    height: 20vh;
+    margin: 0 auto;
+}
 
 .box {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
-    width: calc(33.33% - 20px);
+    width: 30%;;
     box-sizing: border-box;
     background-size: cover;
     background-position: center;
     background-color: #25282e;
-    color: white; /* Text color on top of the background image */
-}
-
-.box1 {
-    background-image: url('/static/images/Angel_Beats.jpg');
-}
-
-.box2 {
-
-}
-
-.box3 {
-
+    color: white;
 }
 
 h2 {
@@ -125,24 +91,8 @@ a {
     margin-top: 10px;
 }
 
-.block-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #333;
-}
-
-.block {
-    display: flex;
-    justify-content: right;
-    align-content: space-between;
-    <!--background: #007bff; -->
-    background-image: url('/static/images/nebula-galaxy-background-with-purple-blue-outer-space-cosmos-clouds-and-beautiful-universe-night-stars-ai-generative-free-photo.jpg');
-
-    p1 {
-        color: black;
-        font-size: 50px;
-        margin: 80px;
+@media screen and (max-width: 768px) {
+    .box {
+        width: 100%; /* Set full width on smaller screens */
     }
 }

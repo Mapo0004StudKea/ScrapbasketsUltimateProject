@@ -21,7 +21,7 @@
 
                 txtValue = (animeNames ? animeNames.textContent || animeNames.innerText : "")
                     + (genre ? genre.textContent || genre.innerText : "")
-                    + (watchAgain ? watchAgain.textContent || watchAgain.innerText : "");
+                    + (watchAgain ? watchAgain.textContent || watchAgain.innerText : "")
                     + (DubSub ? DubSub.textContent || DubSub.innerText : "");
 
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -95,18 +95,19 @@
             <td th:text="${anime.lastTimeWatched}">bad</td>
             <td th:text="${anime.dubSub}">bad</td>
             <td th:text="${anime.mangaRead}">bad</td>
-            <td>
+            <td th:if="${#strings.equalsIgnoreCase(anime.mangaRead, 'yes')}">
                 <a th:href="${anime.mangaLink}" target="_blank">Link</a>
             </td>
+            <td th:unless="${#strings.equalsIgnoreCase(anime.mangaRead, 'yes')}"></td>
         </tr>
         </tbody>
     </table>
 </div>
-</body>
 <footer>
     <div class="navbar">
         <a href="/">
         </a>
     </div>
 </footer>
+</body>
 </html>

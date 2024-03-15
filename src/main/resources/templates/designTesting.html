@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site used for testing</title>
+    <link rel="stylesheet" type="text/css" href="/css/designTesting.css">
+    <ul class="ul">
+        <a href="/">
+            <img src="/images/Logo/ScrapBox.PNG" alt="Your Logo">
+        </a>
+        <li class="li"><a href="#about">About</a></li>
+        <li class="li"><a href="#contact">Contact</a></li>
+        <li class="li"><a href="#news">News</a></li>
+        <li class="li"><a href="/">Home</a></li>
+    </ul>
+</head>
+<body class="bodyTesting">
+    <div class="body">
+        <img src="/images/nebula-galaxy-background-with-purple-blue-outer-space-cosmos-clouds-and-beautiful-universe-night-stars-ai-generative-free-photo.jpg" th:src="@{images/nebula-galaxy-background-with-purple-blue-outer-space-cosmos-clouds-and-beautiful-universe-night-stars-ai-generative-free-photo.jpg}" width="100%" height="300px">
+        <div class="container">
+            <div class="smallBox">
+                <img src="/images/galaxy-types-and-facts.webp" th:src="@{images/galaxy-types-and-facts.webp}" height="350" width="350">
+                <h1>This is a test project</h1>
+                <ul>
+                    <li>Testing of Cakes</li>
+                    <li>Testing of Burgers</li>
+                    <li>Testing of Pizza</li>
+                </ul>
+            </div>
+            <div class="largerBox">
+                <h1>This is also something important</h1>
+                <p>You should test something here</p>
+                <p>You should test something here</p>
+                <p>You should test something here</p>
+                <p>You should test something here</p>
+                <p>You should test something here</p>
+                <p>You should test something here</p>
+                <p>You should test something here</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <h1>Some text here</h1>
+    </div>
+</body>
+</html>

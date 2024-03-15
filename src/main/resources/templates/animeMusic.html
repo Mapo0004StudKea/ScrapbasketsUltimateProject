@@ -98,18 +98,26 @@
             <td th:text="${music.animeSong}">Something</td>
             <td th:text="${music.artist}">Flamingo Boy</td>
             <td th:text="${music.opedin}">opening</td>
-            <td>
+            <td th:if="${music.animeLink ne null}">
                 <a th:href="${music.animeLink}" target="_blank">Link</a>
             </td>
-            <td>
+            <td th:unless="${music.animeLink ne null}">-</td>
+
+            <td th:if="${music.officialLink ne null}">
                 <a th:href="${music.officialLink}" target="_blank">Link</a>
             </td>
-            <td>
+            <td th:unless="${music.officialLink ne null}">-</td>
+
+            <td th:if="${music.alternativeLink ne null}">
                 <a th:href="${music.alternativeLink}" target="_blank">Link</a>
             </td>
-            <td>
+            <td th:unless="${music.alternativeLink ne null}">-</td>
+
+            <td th:if="${music.animeSongLyrics ne null}">
                 <a th:href="${music.animeSongLyrics}" target="_blank">Link</a>
             </td>
+            <td th:unless="${music.animeSongLyrics ne null}"> </td>
+
             <td th:text="${music.lastUpdate}">link here</td>
         </tr>
         </tbody>

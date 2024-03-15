@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:overflow="http://www.w3.org/1999/xhtml"
+      xmlns:margin-left="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Anime Music Index</title>
+    <title>Index</title>
     <link rel="stylesheet" type="text/css" href="/css/index.css">
+
+    <div class="navbar">
+        <a href="/">
+            <img src="/images/Logo/ScrapBox.PNG" alt="Your Logo">
+        </a>
+        <div class="nav-links">
+        </div>
+    </div>
+    <div>
+        <img src="../static/images/nebula-galaxy-background-with-purple-blue-outer-space-cosmos-clouds-and-beautiful-universe-night-stars-ai-generative-free-photo.jpg" alt="banner" th:src="@{/images/nebula-galaxy-background-with-purple-blue-outer-space-cosmos-clouds-and-beautiful-universe-night-stars-ai-generative-free-photo.jpg}" height="200px" width="100%">
+    </div>
 </head>
 <body>
-<div class="navbar">
-    <a href="/">
-        <img src="/images/Logo/ScrapBox.PNG" alt="Your Logo">
-    </a>
-    <div class="nav-links">
-        <!--
-        <a href="/deck-builder">Deck Builder</a>
-        <a href="/mtg-cards">MTG Cards</a>
-        <a href="/events">Events</a>
-        <a href="/draft-sim">Draft Sim</a>
-        <a href="/cubes">Cubes</a>
-        <a href="/forums">Forums</a>
-        <a href="/rules-q-a">Rules Q&A</a>
-        <a href="/community">Community</a>
-        -->
+<div class="boxContainer2">
+    <div class="largerBox">
+        <h1>Start Page</h1>
+        <p>This is a personal project i have made to use what i have learned in school and to test out ideas.</p>
+        <p>And to make something i have wanted to create for a long time.</p>
     </div>
 </div>
-<div class="container">
-    <h1>Start Page</h1>
-    <p>This is a personal project i have made to use what i have learned in school and to test out ideas.</p>
-    <p>And to make something i have wanted to create for a long time.</p>
+<div>
     <div class="boxContainer">
-        <!-- Box 1 -->
         <div class="box box1">
             <h2>Anime List - 20% completed</h2>
             <p>Go to see my list of anime i have watched throughout the years.</p>
@@ -36,7 +34,6 @@
             <a href="/animeList">Go to my anime list</a>
         </div>
 
-        <!-- Box 2 -->
         <div class="box box2">
             <h2>Anime Song List - 75% completed</h2>
             <p>Go to the list of anime songs i like in random order</p>
@@ -44,7 +41,6 @@
             <a href="/AnimeMusticList">Go to my anime music list</a>
         </div>
 
-        <!-- Box 3 -->
         <div class="box">
             <h2>Manga List - Not made yet!</h2>
             <p>Here you can see a list of all the manga i have read throughout the years</p>
@@ -53,21 +49,18 @@
         </div>
     </div>
     <div class="boxContainer">
-        <!-- Box 4 -->
         <div class="box box1">
             <h2>Magic Card Decks</h2>
             <p>Here you can see my Magic the Gatherings decks.</p>
             <a href="https://tappedout.net/users/Scrapbasket/deck-folders/">Go to my MTG Decks</a>
         </div>
 
-        <!-- Box 2 -->
         <div class="box box2">
             <h2>MTG Collection - Not made yet!</h2>
             <p>Here you can see my Magic the Gathering Collection, with prices and everything.</p>
             <a href="/">Go to my MTG Collection</a>
         </div>
 
-        <!-- Box 3 -->
         <div class="box box3">
             <h2>Contact</h2>
             <p>Keep yourself updated</p>
@@ -77,12 +70,4 @@
     </div>
 </div>
 </body>
-<footer>
-    <div class="navbar">
-        <a href="/">
-
-        </a>
-        </div>
-    </div>
-</footer>
 </html>
