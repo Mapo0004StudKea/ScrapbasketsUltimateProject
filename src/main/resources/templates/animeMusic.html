@@ -84,9 +84,11 @@
             <th>Anime Song</th>
             <th>Artist</th>
             <th>OP/ED/IN</th>
+            <!--
             <th>Anime Link</th>
             <th>Official Link</th>
             <th>Alternative Link</th>
+            -->
             <th>Anime Song Lyrics</th>
             <th>Last Update</th>
         </tr>
@@ -98,6 +100,7 @@
             <td th:text="${music.animeSong}">Something</td>
             <td th:text="${music.artist}">Flamingo Boy</td>
             <td th:text="${music.opedin}">opening</td>
+            <!--
             <td th:if="${music.animeLink ne null}">
                 <a th:href="${music.animeLink}" target="_blank">Link</a>
             </td>
@@ -112,7 +115,7 @@
                 <a th:href="${music.alternativeLink}" target="_blank">Link</a>
             </td>
             <td th:unless="${music.alternativeLink ne null}">-</td>
-
+            -->
             <td th:if="${music.animeSongLyrics ne null}">
                 <a th:href="${music.animeSongLyrics}" target="_blank">Link</a>
             </td>

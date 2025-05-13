@@ -72,33 +72,42 @@
         <tr>
             <th>ID</th>
             <th>Anime Name</th>
+            <!--
             <th>Anime Link</th>
+            -->
             <th>Genre</th>
             <th>Rewatch?</th>
             <th>Date Started</th>
             <th>Last Update</th>
             <th>Dub/Sub</th>
             <th>Manga Read?</th>
+            <!--
             <th>Manga Link</th>
+            -->
         </tr>
         </thead>
         <tbody>
         <tr th:each="anime : ${animelist}">
             <td th:text="${anime.id}">1</td>
             <td th:text="${anime.animeNames}">Anime Name</td>
+            <!--
             <td>
                 <a th:href="${anime.link}" target="_blank">Link</a>
             </td>
+            -->
             <td th:text="${anime.genre}">genre</td>
             <td th:text="${anime.watchAgain}">bad</td>
             <td th:text="${anime.dateStarted}">bad</td>
             <td th:text="${anime.lastTimeWatched}">bad</td>
             <td th:text="${anime.dubSub}">bad</td>
             <td th:text="${anime.mangaRead}">bad</td>
+
+            <!--
             <td th:if="${#strings.equalsIgnoreCase(anime.mangaRead, 'yes')}">
                 <a th:href="${anime.mangaLink}" target="_blank">Link</a>
             </td>
             <td th:unless="${#strings.equalsIgnoreCase(anime.mangaRead, 'yes')}"></td>
+            -->
         </tr>
         </tbody>
     </table>
